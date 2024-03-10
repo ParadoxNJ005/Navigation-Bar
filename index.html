@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style> 
+    *{
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
+
+    body{
+        position: relative;
+        height:100vh;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.916),rgba(0, 0, 0, 0.509)),url(' back.jpg') ;
+        background-size: cover;
+    }
+
+    #nav{
+        position:fixed;
+        height:60px;
+        top:-80px;
+        animation: reverseAnimate 0s 0s 1 ease-in-out;
+        width:100%;
+        background-color: #090908;
+        color: aliceblue;
+        margin-left: 20px;
+        margin-top: 10px;
+        border-radius: 10px;
+    }
+
+    #nav ul{
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #nav ul li{
+        padding:10px 10px;
+        cursor:pointer;
+        margin:10px 20px;
+        border-radius: 5px;
+        border-bottom: 2px solid #ff004f;
+        background-color: #ff004f;
+    }
+    .container{
+        width:100%;
+        grid-template-columns: auto auto auto auto;
+        grid-template-rows: auto auto auto auto;
+        display: grid;
+        padding:20px;
+        height:250vh;
+        gap: 20px;
+    }
+    .box{
+        background-color: transparent;
+        color: aliceblue;
+        padding:20px;
+        text-align: center;
+        font-size: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    @keyframes animate {
+        from{
+            top:-60px;
+        }
+        to{
+            top:0px;
+        }
+    }
+    @keyframes reverseAnimate {
+        from{
+            top:0px;
+        }
+        to{
+            top:-60px;
+        }
+    }
+</style>
+<body>
+    <div id="nav" class="animate">
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Product</li>
+            <li>Contact</li>
+        </ul>
+    </div>
+    <div class="container">
+        <div id="1" class="box">Scroll</div>
+        <div id="2" class="box">Down</div>
+        <div id="3" class="box">to View</div>
+        <div id="4" class="box">Navbar</div>
+        <div id="5" class="box"></div>
+        <div id="6" class="box"></div>
+        <div id="7" class="box"></div>
+        <div id="8" class="box"></div>
+        <div id="5" class="box"></div>
+        <div id="6" class="box"></div>
+        <div id="7" class="box"></div>
+        <div id="8" class="box"></div>
+        <div id="9" class="box"></div>
+        <div id="10" class="box"></div>
+        <div id="11" class="box"></div>
+        <div id="12" class="box"></div>
+        <div id="13" class="box"></div>
+        <div id="14" class="box"></div>
+    </div>
+</body>
+<script>
+    const li = document.querySelectorAll("li");
+    li.forEach(element => {
+        element.addEventListener("mouseover", ()=>{
+            element.style.backgroundColor = "#ffb300";
+        })
+        element.addEventListener("mouseout", ()=>{
+            element.style.backgroundColor = "#ff004f";
+        })
+    });
+
+    window.onscroll = function() {
+        scroll();
+    };
+  
+    function scroll() {
+        if (document.documentElement.scrollTop > 240) {
+            document.getElementById("nav").style.animation = "animate 0.5s 0s 1 ease-in-out";
+            document.getElementById("nav").style.top = "0px";
+        }
+        else {
+            document.getElementById("nav").style.animation = "reverseAnimate 0.5s 0s 1 ease-in-out";
+            document.getElementById("nav").style.top = "-60px";
+        }
+    }
+</script>
+</html>
